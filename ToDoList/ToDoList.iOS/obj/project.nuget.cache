@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "M4/TpGmazDaFpEcOyhZw0sYKvXN90JT5WiA/kk4PbJhy+lzvLD3IJ5EnNIJggRLvHBgUaxJNOv7brjO600hhFQ==",
+  "success": true,
+  "projectFilePath": "D:\\AndroidAPP\\ToDoList\\ToDoList\\ToDoList\\ToDoList.iOS\\ToDoList.iOS.csproj",
+  "expectedPackageFiles": [
+    "D:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Users\\Влад\\.nuget\\packages\\xamarin.forms\\4.6.0.1141\\xamarin.forms.4.6.0.1141.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Обнаружено понижение версии пакета Xamarin.Forms с 4.8.0.1821 на 4.6.0.1141. Чтобы выбрать другую версию, создайте ссылку на пакет напрямую из проекта. \r\n ToDoList.iOS -> ToDoList -> Xamarin.Forms (>= 4.8.0.1821) \r\n ToDoList.iOS -> Xamarin.Forms (>= 4.6.0.1141)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
+}

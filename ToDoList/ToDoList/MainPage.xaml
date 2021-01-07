@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ToDoList"
+             x:Class="ToDoList.MainPage">
+
+    <StackLayout>
+        <StackLayout 
+            Orientation="Horizontal" 
+            Margin="10">
+            <Entry 
+                x:Name="input"
+                Placeholder="Заголовок задачи"
+                FontAttributes="Bold" 
+                HorizontalOptions="FillAndExpand" 
+                VerticalTextAlignment="End"/>
+            <Button 
+                Text="+"
+                FontAttributes="Bold"
+                BackgroundColor="Green"
+                BorderColor="Black"
+                BorderWidth="2"
+                WidthRequest="50" 
+                CornerRadius="25"
+                HeightRequest="50" 
+                Margin="0,0,0,10"
+                Command="{Binding AddPurpose}"
+                CommandParameter="{Binding Source={x:Reference Name=input}, Path=Text}"/>
+        </StackLayout>
+        <BoxView 
+            HeightRequest="2"
+            BackgroundColor="Black"/>
+
+        <ScrollView Margin="5">
+            <ListView x:Name="T" ItemsSource="{Binding Purposes}" HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal" Margin="5" HeightRequest="60">
+                                    <CheckBox 
+                                        x:Name="checkBox"
+                                        Scale="1.5"
+                                        Margin="5,5,5,5"
+                                        IsChecked="{Binding Done}"/>
+                                    <Label 
+                                        FontAttributes="Bold"
+                                        VerticalTextAlignment="Center"
+                                        HorizontalOptions="FillAndExpand"
+                                        Text="{Binding Title}">
+                                        <Label.Triggers>
+                                            <DataTrigger 
+                                                TargetType="Label"
+                                                Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                                                Value="false">
+                                                <Setter Property="TextDecorations" Value="None" />
+                                            </DataTrigger>
+                                            <DataTrigger 
+                                                TargetType="Label"
+                                                Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                                                Value="true">
+                                                <Setter Property="TextDecorations" Value="Strikethrough" />
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                    <Button 
+                                        Text="X"
+                                        BackgroundColor="Red"
+                                        BorderColor="Black"
+                                        BorderWidth="2"
+                                        WidthRequest="50"
+                                        HeightRequest="50" 
+                                        Margin="5"
+                                        Scale="0.8"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainViewModel}}, Path=DeletePurpose} }"
+                                        CommandParameter="{Binding}"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+    </StackLayout>
+
+</ContentPage>
